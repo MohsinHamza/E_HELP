@@ -113,7 +113,7 @@ class _FeedbackViewState extends State<FeedbackView> {
                   onPressed: () => Functions.openEmailAppSupport(),
                   child: const Text("or Contact us via E-mail", style: TextStyle(fontSize: 12, color: Colors.grey))),
               const SizedBox(height: 16.0),
-              const Text("Your review will be sent to M.E.N Team", style: TextStyle(fontSize: 12, color: Colors.grey)),
+              const Text("Your review will be sent to E.Help Team", style: TextStyle(fontSize: 12, color: Colors.grey)),
               const SizedBox(height: 60)
             ],
           ),

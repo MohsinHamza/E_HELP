@@ -33,14 +33,14 @@ class LocationScreen extends GetView<AppConfigController> {
                       const SizedBox(
                         height: 7,
                       ),
-                      Appassets.location_icon,
+                      Image.asset('assets/svg_icons/globe.png',height: 160,width: 200,),
                         const SizedBox(
                           height: 22,
                         ),
                       Text(
                           "Enable Permission location",
                           style: AppTextStyles.kPrimaryS9W5.copyWith(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -55,7 +55,7 @@ class LocationScreen extends GetView<AppConfigController> {
                           ),
                         ),
                         const SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         Container(
                           width: double.infinity,
@@ -63,7 +63,7 @@ class LocationScreen extends GetView<AppConfigController> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0),
+                                borderRadius: BorderRadius.circular(30.0),
                               )),
                               backgroundColor: MaterialStateProperty.all<Color>(AppColors.Kblue_type),
                             ),

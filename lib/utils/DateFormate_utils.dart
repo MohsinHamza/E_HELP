@@ -4,8 +4,13 @@ import 'package:jiffy/jiffy.dart';
 class CustomeDateFormate {
   static String DDMMMMDDDD(DateTime? date) {
     if (date == null) return "";
-    return Jiffy(date, "dd, MMM E").MMMd + ", " + Jiffy(date, "dd, MMM E").EEEE;
+    return  "${DateFormat('MM/dd/yyyy').format(date)}, ${Jiffy(date, "dd, MMM E").EEEE}";
   }
+  ///original
+  // static String DDMMMMDDDD(DateTime? date) {
+  //   if (date == null) return "";
+  //   return Jiffy(date, "dd, MMM E").MMMd + ", " + Jiffy(date, "dd, MMM E").EEEE;
+  // }
 
   static String DOB(int? milliseconds) {
     if (milliseconds == null) return "";

@@ -33,6 +33,7 @@ class HomePage extends GetView<HomeController> {
     // }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Navigator(
         key: Get.nestedKey(1),
         initialRoute: Routes.LOCATE,

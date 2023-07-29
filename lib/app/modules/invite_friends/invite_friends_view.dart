@@ -21,18 +21,40 @@ class InviteScreen extends GetView<InviteController> {
             : controller.contacts.isEmpty
                 ? const Center(child: Text("No Contacts Found"))
                 : ListView.builder(
+                    padding: const EdgeInsets.only(top: 30),
                     shrinkWrap: true,
                     itemCount: controller.contacts.length,
                     itemBuilder: (context, index) {
                       final contact = controller.contacts[index];
                       return ListTile(
                         title: Text(contact.displayName),
-                        subtitle: Text(contact.phones.isNotEmpty ? contact.phones[0].number : "Unable to fetch phone number"),
-                        leading: const CircleAvatar(backgroundColor: AppColors.Kblue_type, backgroundImage: AssetImage("assets/images/defaultphoto.png")),
-                        trailing: ElevatedButton(
-                          style: ElevatedButton.styleFrom(elevation: 0.0, primary: AppColors.Kblue_type, side: BorderSide.none, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))),
-                          child: const Text('Invite'),
-                          onPressed: () => controller.onInvitePress(contact: contact),
+                        subtitle: Text(contact.phones.isNotEmpty
+                            ? contact.phones[0].number
+                            : "Unable to fetch phone number"),
+                        leading: const CircleAvatar(
+                            backgroundColor: AppColors.Kblue_type,
+                            backgroundImage:
+                                AssetImage("assets/images/defaultphoto.png")),
+                        trailing: InkWell(
+                          onTap: () =>
+                              controller.onInvitePress(contact: contact),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.Kblue_type,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 22.0, vertical: 6),
+                              child: Text(
+                                'Invite',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       );
                       ;

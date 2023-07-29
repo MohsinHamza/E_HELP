@@ -297,7 +297,7 @@ class _CalendarPaymentBuyPageState extends State<CalendarPaymentBuyPage> {
                                   width: 20,
                                 ),
                                 Text(
-                                  "${CustomeDateFormate.DDMMMMDDDD(startDate)} ${startDate.year}",
+                                  "${CustomeDateFormate.DDMMMMDDDD(startDate)}",
                                   style: AppTextStyles.kPrimaryS9W3,
                                 ),
                               ],
@@ -326,7 +326,7 @@ class _CalendarPaymentBuyPageState extends State<CalendarPaymentBuyPage> {
                                   width: 20,
                                 ),
                                 Text(
-                                  "${CustomeDateFormate.DDMMMMDDDD(endDate)} ${endDate.year}",
+                                  "${CustomeDateFormate.DDMMMMDDDD(endDate)}",
                                   style: AppTextStyles.kPrimaryS9W3,
                                 ),
                               ],
@@ -674,10 +674,7 @@ class ScheduleCalendarScreen extends StatelessWidget {
 
 class DrawerTile extends StatelessWidget {
   const DrawerTile(
-      {Key? key,
-      required this.title,
-       this.iconData,
-      required this.onPressed})
+      {Key? key, required this.title, this.iconData, required this.onPressed})
       : super(key: key);
   final String title;
   final String? iconData;
@@ -690,7 +687,9 @@ class DrawerTile extends StatelessWidget {
         style: GoogleFonts.montserrat(
             fontSize: 15, fontWeight: FontWeight.w600, color: Colors.black),
       ),
-      leading: iconData==null?const Icon(Icons.person):Image.asset('assets/svg_icons/$iconData'),
+      leading: iconData == null
+          ? const Icon(Icons.person)
+          : Image.asset('assets/svg_icons/$iconData'),
       onTap: onPressed,
     );
   }
