@@ -12,7 +12,7 @@ import 'package:logger/logger.dart';
 import '../../../config/assets/svg_assets.dart';
 import '../../../config/theme/apptextstyles.dart';
 import 'components/already_have_an_account_check.dart';
-import 'components/or_divider.dart';
+
 import 'components/visibility_icon.dart';
 
 class LoginScreen extends GetView<SignInController> {
@@ -36,20 +36,19 @@ class LoginScreen extends GetView<SignInController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        height: 140,
-                        width: 140,
+                        height: 100,
                         decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(image: AssetImage('assets/icons/men_logo.png'), fit: BoxFit.fitHeight),
+                          image: DecorationImage(
+                              image: AssetImage('assets/icons/men_logo.png',),
+                              fit: BoxFit.fitHeight),
                         ),
                       ),
                     ),
                     const SizedBox(
-                      height: 14,
+                      height: 20,
                     ),
                     const Text(
                       'Welcome Back!',
@@ -115,7 +114,8 @@ class LoginScreen extends GetView<SignInController> {
                           width: MediaQuery.of(context).size.width / 1.1,
                           height: 56,
                           child: TextFormField(
-                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
                             validator: (_) {
                               if (_!.length < 3) {
                                 return "Your password is weak, please enter strong password.";
@@ -125,10 +125,14 @@ class LoginScreen extends GetView<SignInController> {
                             obscureText: controller.isObsecure,
                             controller: controller.passwordC,
                             decoration: InputDecoration(
-                              prefixIcon: SizedBox(width: 20, height: 10, child: Appassets.icon_lock),
+                              prefixIcon: SizedBox(
+                                  width: 20,
+                                  height: 10,
+                                  child: Appassets.icon_lock),
                               suffixIcon: Visibility_icon(
                                 press: () {
-                                  controller.isObsecure = !controller.isObsecure;
+                                  controller.isObsecure =
+                                      !controller.isObsecure;
                                 },
                               ),
                               hintText: "Password",
@@ -161,7 +165,8 @@ class LoginScreen extends GetView<SignInController> {
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: GetBuilder<AuthController>(builder: (controller) {
                         return Visibility(
-                          visible: controller.state == ViewState.Busy || controller.errorMessage != null,
+                          visible: controller.state == ViewState.Busy ||
+                              controller.errorMessage != null,
                           child: controller.errorMessage != null
                               ? Text(
                                   controller.errorMessage ?? "",
@@ -207,7 +212,6 @@ class LoginScreen extends GetView<SignInController> {
                         },
                       ),
                     ),
-
                     const SizedBox(
                       height: 10,
                     ),

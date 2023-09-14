@@ -4,7 +4,8 @@ import 'package:jiffy/jiffy.dart';
 class CustomeDateFormate {
   static String DDMMMMDDDD(DateTime? date) {
     if (date == null) return "";
-    return  "${DateFormat('MM/dd/yyyy').format(date)}, ${Jiffy(date, "dd, MMM E").EEEE}";
+   // Jiffy(date, "dd, MMM E").EEEE
+    return  "${DateFormat('MM/dd/yyyy').format(date)}, ${Jiffy.parseFromDateTime(date).format(pattern: 'dd, MMM E')}";
   }
   ///original
   // static String DDMMMMDDDD(DateTime? date) {
@@ -22,13 +23,15 @@ class CustomeDateFormate {
   static bool isSixHoursAgo(int? milliseconds) {
     if (milliseconds == null) return false;
     var dt = DateTime.fromMillisecondsSinceEpoch(milliseconds);
-    return Jiffy(dt).isSame(Jiffy(), Units.HOUR);
+    Jiffy jiffy = Jiffy.now();
+    return Jiffy.parseFromDateTime(dt).isSame(jiffy,unit: Unit.hour);
+    //return Jiffy(dt).isSame(Jiffy(), Units.HOUR);
   }
   static DateTime MillisecondsToDOB(String? dob) {
     if (dob == null) return  DateTime(2020);
     DateFormat('MM-dd-yyyy').parse(dob);
     //var dt = DateTime.fromMillisecondsSinceEpoch(milliseconds);
 
-    return DateFormat('MM-dd-yyyy').parse(dob);;
+    return DateFormat('MM-dd-yyyy').parse(dob);
   }
 }

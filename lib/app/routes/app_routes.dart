@@ -12,6 +12,7 @@ abstract class Routes {
   static const RECORDEVIDENCE = _Paths.RECORDEVIDENCE;
   static const MYEVIDENCES = _Paths.MYEVIDENCES;
   static const BOOKINGS = _Paths.BOOKINGS;
+  static const FAMILY = _Paths.FAMILY;
   static const INVITE = _Paths.INVITE;
   static const FEEDBACK = _Paths.FEEDBACK;
   static const SEEYOURID = _Paths.SEEYOURID;
@@ -80,6 +81,7 @@ abstract class _Paths {
 
   static const SPLASH = "/splash";
   static const BOOKINGS = "/BOOKINGS";
+  static const FAMILY = "/FAMILY";
   static const INVITE = "/INVITE";
   //normal paths...
   ////addemergencycontact

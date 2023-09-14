@@ -9,7 +9,7 @@ class Reuseable_button extends StatelessWidget {
     this.clr,
     this.picture,
 
-    @required this.onPress,
+    this.onPress,
   {this.shouldHavePadding = true}
   );
 

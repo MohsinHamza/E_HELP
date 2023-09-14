@@ -8,7 +8,7 @@ class HomeController extends GetxController {
 
   var currentIndex = 0.obs;
 
-  final pages = [Routes.BOOKINGS,Routes.CONTACTS].obs;
+  final pages = [Routes.BOOKINGS,Routes.FAMILY,Routes.CONTACTS].obs;
   // final pages = [Routes.LOCATE, Routes.CONTACTS, Routes.EMERGENCY, Routes.USERS, Routes.PROFILE].obs;
 
   ///NAV BAR INDEX []
@@ -20,7 +20,7 @@ class HomeController extends GetxController {
   void changePage(int index, {bool fromBottom = true}) {
     currentIndex.value =index;
     if (fromBottom) {
-      Get.toNamed(pages[index], id: 1);
+      Get.toNamed(pages[index],id: 1);
     } else {
       Get.offNamedUntil(Routes.HOME, (route) => route.settings.name == Routes.HOME);
 

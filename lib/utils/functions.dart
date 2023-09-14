@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_image/flutter_native_image.dart';
-import 'package:flutter_sms/flutter_sms.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:getx_skeleton/app/components/camera_image_picker_view.dart';
@@ -10,6 +10,7 @@ import 'package:getx_skeleton/config/theme/custom_app_colors.dart';
 import 'package:location/location.dart';
 import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart' hide PermissionStatus;
+import 'package:sms_mms/sms_mms.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../app/components/reuseable_button.dart';
@@ -251,10 +252,11 @@ class Functions {
       }
     } else {
       //for ios
-      String _result = await sendSMS(message: body, recipients: [number]).catchError((onError) {
-        print(onError);
-      });
-      print(_result);
+
+      await SmsMms.send(
+        recipients: [number],
+        message: body,
+      );
     }
 
     // String _body = body.replaceAll(" ", "%20");

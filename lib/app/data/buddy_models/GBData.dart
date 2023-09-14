@@ -38,7 +38,7 @@ class GeocodeBuddy {
   String? type;
   double? importance;
   String? addresstype;
-  dynamic? name;
+  dynamic name;
   String? displayName;
   Address? address;
   List<String>? boundingbox;

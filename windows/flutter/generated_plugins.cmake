@@ -4,7 +4,9 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   awesome_notifications
+  firebase_core
   permission_handler_windows
+  sms_mms
   url_launcher_windows
 )
 

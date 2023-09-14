@@ -2,12 +2,9 @@ import 'dart:core';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:getx_skeleton/app/services/firebase_storage_services.dart';
 
 import '../routes/app_pages.dart';
-import '../services/FirebaseFirestoreServices.dart';
 
 class MyAppUser extends GetxService {
   static MyAppUser get find => Get.find();

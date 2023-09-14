@@ -16,7 +16,9 @@ class EmergencyContacts extends GetView<EmergencyContactsController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: const BackButton(color: Colors.redAccent,),
+        leading: const BackButton(
+          color: Colors.redAccent,
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: const [
@@ -37,22 +39,33 @@ class EmergencyContacts extends GetView<EmergencyContactsController> {
               child: GetBuilder<EmergencyContactsController>(
                 builder: (controller) {
                   if (controller.state == ViewState.Busy) {
-                    return const Center(child: CircularProgressIndicator.adaptive());
+                    return const Center(
+                        child: CircularProgressIndicator.adaptive());
                   }
-                  if (controller.emergencyContactList == null || controller.emergencyContactList!.isEmpty) {
+                  if (controller.emergencyContactList == null ||
+                      controller.emergencyContactList!.isEmpty) {
                     return const Center(
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: Text("You Can Add New Emergency Contact By Clicking + Button", textAlign: TextAlign.center),
+                        child: Text(
+                            "You Can Add New Emergency Contact By Clicking + Button",
+                            textAlign: TextAlign.center),
                       ),
                     );
                   }
                   return ListView.separated(
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (BuildContext context, index) =>
-                          ContactTile(contactModel: controller.emergencyContactList![index], isEmergencyList: true),
-                      separatorBuilder: (_, __) => const Padding(padding: EdgeInsets.symmetric(horizontal: 13.0), child: Divider()),
-                      itemCount: controller.emergencyContactList!.length);
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (BuildContext context, index) => ContactTile(
+                      contactModel: controller.emergencyContactList![index],
+                      isEmergencyList: true,
+                    ),
+                    separatorBuilder: (_, __) => const Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 13.0,
+                        ),
+                        child: Divider()),
+                    itemCount: controller.emergencyContactList!.length,
+                  );
                 },
               ),
             ),

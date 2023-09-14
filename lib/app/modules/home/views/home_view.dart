@@ -40,8 +40,8 @@ class HomePage extends GetView<HomeController> {
         onGenerateRoute: AppPages.onGenerateNavBarRoute,
       ),
       floatingActionButton: const RoundedButton(),
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      //floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -49,14 +49,28 @@ class HomePage extends GetView<HomeController> {
           selectedItemColor: AppColors.Kblue_type,
           unselectedItemColor: Colors.grey,
           onTap: controller.changePage,
-          items:  <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon:Image.asset('assets/svg_icons/booking.png'),
-                label: 'Booking'),
+              icon: Image.asset(
+                'assets/svg_icons/booking.png',
+              ),
+              label: 'Booking',
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(
+                Icons.group,
+                color: Colors.black,
+              ),
+              label: 'Family',
+            ),
 
             const BottomNavigationBarItem(
-                icon: Icon(Icons.person, color: Colors.black),
-                label: 'Contacts'),
+              icon: Icon(
+                Icons.person,
+                color: Colors.black,
+              ),
+              label: 'Contacts',
+            ),
 
             // const BottomNavigationBarItem(icon: Icon(Icons.supervised_user_circle_sharp, color: Colors.black), label: 'Users'),
             // BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined, color: Colors.black), label: 'Profile'),

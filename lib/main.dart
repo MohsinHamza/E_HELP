@@ -21,7 +21,6 @@ import 'app/services/auth_firebase_services.dart';
 import 'app/services/country_services.dart';
 import 'app/services/dynamic_link_services.dart';
 import 'app/services/firebase_storage_services.dart';
-import 'app/services/in_app_purchases_service.dart';
 import 'app/services/location_services.dart';
 import 'app/services/logger_services.dart';
 import 'config/theme/my_theme.dart';
@@ -113,7 +112,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, widget) {
         bool themeIsLight = MySharedPref.getThemeIsLight();
         return Theme(
-          data: MyTheme.getThemeData(isLight: themeIsLight),
+          data: MyTheme.getThemeData(isLight: themeIsLight,context: context),
           child: MediaQuery(
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
             child: widget!,
@@ -121,7 +120,7 @@ class _MyAppState extends State<MyApp> {
         );
       },
 
-      home: WrapperWidget(),
+      home: const WrapperWidget(),
       initialRoute: AppPages.INITIAL,
       // first screen to show when app is running
       getPages: AppPages.routes, // app screens
@@ -150,84 +149,31 @@ class _WrapperWidgetState extends State<WrapperWidget> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: StreamBuilder<MyAppUser?>(
-          stream: Get.find<FirebaseAuthService>().authStateChanges,
-          builder: (BuildContext context, snap) {
-            if (snap.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: Container(
-                  height: 140,
-                  width: 140,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage("assets/icons/men_logo.png"),
-                      fit: BoxFit.fitHeight,
-                    ),
+        stream: Get.find<FirebaseAuthService>().authStateChanges,
+        builder: (BuildContext context, snap) {
+          if (snap.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: Container(
+                height: 140,
+                width: 140,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage("assets/icons/men_logo.png"),
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
-              );
-            }
+              ),
+            );
+          }
 
-            if (snap.data != null) {
-              //PurchasesApi.init();
-              return FutureBuilder<MyAppUser?>(
-                  future: FirebaseFirestoreService.find
-                      .loadMyAppUserData(snap.data?.id ?? ""),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
-                        child: Container(
-                          height: 140,
-                          width: 140,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                image: AssetImage("assets/icons/men_logo.png"),
-                                fit: BoxFit.fitHeight),
-                          ),
-                        ),
-                      );
-                    }
-
-                    MyAppUser.find.update(snapshot.data!);
-
-                    ///todo: berta da ham enable ka
-                    // if (snapshot.data?.isSubscriptionExpired == true ||
-                    //     snapshot.data?.isSubscriptionExpired == null) {
-                    //   if (kDebugMode) {
-                    //     print(
-                    //         "IS EXPIRED ${snapshot.data?.isSubscriptionExpired}");
-                    //   }
-                    //   Future.delayed(200.milliseconds).then(
-                    //     (value) async {
-                    //       return Get.offAll(
-                    //         SubscriptionExpiredScreen(user: snap.data),
-                    //       );
-                    //     },
-                    //   );
-
-                    //   return Center(
-                    //     child: Container(
-                    //       height: 140,
-                    //       width: 140,
-                    //       decoration: const BoxDecoration(
-                    //         shape: BoxShape.circle,
-                    //         image: DecorationImage(
-                    //           image: AssetImage(
-                    //             "assets/icons/men_logo.png",
-                    //           ),
-                    //           fit: BoxFit.fitHeight,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   );
-                    // }
-
-                    // Future.delayed(200.milliseconds).then(
-                    //   (value) async {
-                    //     return Get.offAllNamed(Routes.HOME);
-                    //   },
-                    // );
+          if (snap.data != null) {
+            //PurchasesApi.init();
+            return FutureBuilder<MyAppUser?>(
+                future: FirebaseFirestoreService.find
+                    .loadMyAppUserData(snap.data?.id ?? ""),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(
                       child: Container(
                         height: 140,
@@ -240,31 +186,89 @@ class _WrapperWidgetState extends State<WrapperWidget> {
                         ),
                       ),
                     );
-                  });
+                  }
 
-              // MyAppUser.find.update(snap.data!);
-              // Get.find<FirebaseAuthService>().isSubscriptionExpired(snap.data?.subscriptionExpiryMilliseconds).then((value) => {
-              //       if (value == true || value == null)
-              //         {
-              //           Get.offAll(SubscriptionExpiredScreen(
-              //             user: snap.data,
-              //           )),
-              //         }
-              //     });
-            }
-            return Center(
-              child: Container(
-                height: 140,
-                width: 140,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: AssetImage("assets/icons/men_logo.png"),
-                      fit: BoxFit.fitHeight),
+                  MyAppUser.find.update(snapshot.data!);
+
+                  ///todo: berta da ham enable ka
+                  // if (snapshot.data?.isSubscriptionExpired == true ||
+                  //     snapshot.data?.isSubscriptionExpired == null) {
+                  //   if (kDebugMode) {
+                  //     print(
+                  //         "IS EXPIRED ${snapshot.data?.isSubscriptionExpired}");
+                  //   }
+                  //   Future.delayed(200.milliseconds).then(
+                  //     (value) async {
+                  //       return Get.offAll(
+                  //         SubscriptionExpiredScreen(user: snap.data),
+                  //       );
+                  //     },
+                  //   );
+
+                  //   return Center(
+                  //     child: Container(
+                  //       height: 140,
+                  //       width: 140,
+                  //       decoration: const BoxDecoration(
+                  //         shape: BoxShape.circle,
+                  //         image: DecorationImage(
+                  //           image: AssetImage(
+                  //             "assets/icons/men_logo.png",
+                  //           ),
+                  //           fit: BoxFit.fitHeight,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   );
+                  // }
+
+                  // Future.delayed(200.milliseconds).then(
+                  //   (value) async {
+                  //     return Get.offAllNamed(Routes.HOME);
+                  //   },
+                  // );
+                  return Center(
+                    child: Container(
+                      height: 140,
+                      width: 140,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage("assets/icons/men_logo.png"),
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    ),
+                  );
+                });
+
+            // MyAppUser.find.update(snap.data!);
+            // Get.find<FirebaseAuthService>().isSubscriptionExpired(snap.data?.subscriptionExpiryMilliseconds).then((value) => {
+            //       if (value == true || value == null)
+            //         {
+            //           Get.offAll(SubscriptionExpiredScreen(
+            //             user: snap.data,
+            //           )),
+            //         }
+            //     });
+          }
+          return Center(
+            child: Container(
+              height: 140,
+              width: 140,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/icons/men_logo.png",
+                  ),
+                  fit: BoxFit.fitHeight,
                 ),
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }

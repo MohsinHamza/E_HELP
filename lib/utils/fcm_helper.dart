@@ -61,7 +61,7 @@ class FcmHelper {
 
   // when user click on notification or click on button on the notification
   static listenToActionButtons() {
-    awesomeNotifications.setListeners(
+    AwesomeNotifications().setListeners(
       onActionReceivedMethod: (ReceivedNotification receivedNotification) async {
         debugPrint(receivedNotification.toMap().toString());
       },

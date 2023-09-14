@@ -14,17 +14,16 @@ class SplashScreen extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: StreamBuilder<MyAppUser?>(
           stream: controller.authStateChanges,
           builder: (context, snapshot) {
             if (snapshot.connectionState != ConnectionState.active) {
               return Center(
                 child: Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
                   decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
+
                     image: DecorationImage(image: AssetImage("assets/icons/men_logo.png"), fit: BoxFit.fitHeight),
                   ),
                 ),
@@ -41,10 +40,10 @@ class SplashScreen extends GetView<AuthController> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
                       child: Container(
-                    height: 140,
-                    width: 140,
+                    height: 100,
+
                     decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
+
                       image: DecorationImage(image: AssetImage("assets/icons/men_logo.png"), fit: BoxFit.fitHeight),
                     ),
                   ));
@@ -59,10 +58,10 @@ class SplashScreen extends GetView<AuthController> {
                     });
                     return Center(
                       child: Container(
-                        height: 140,
-                        width: 140,
+                        height: 100,
+
                         decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
+
                           image: DecorationImage(image: AssetImage("assets/icons/men_logo.png"), fit: BoxFit.fitHeight),
                         ),
                       ),

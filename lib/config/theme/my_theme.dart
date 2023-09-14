@@ -7,16 +7,18 @@ import 'dark_theme_colors.dart';
 import 'light_theme_colors.dart';
 
 class MyTheme {
-  static getThemeData({required bool isLight}) {
+  static getThemeData({required bool isLight,required BuildContext context}) {
     return ThemeData(
         // main color (app bar,tabs..etc)
         primaryColor: isLight
             ? LightThemeColors.primaryColor
             : DarkThemeColors.primaryColor,
         // secondary color (for checkbox,float button, radio..etc)
-        accentColor: isLight
-            ? LightThemeColors.accentColor
-            : DarkThemeColors.accentColor,
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+          secondary: isLight
+              ? LightThemeColors.accentColor
+              : DarkThemeColors.accentColor
+        ),
         // color contrast (if the theme is dark text should be white for example)
         brightness: isLight ? Brightness.light : Brightness.dark,
         // card widget background color

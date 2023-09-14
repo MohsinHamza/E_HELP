@@ -103,7 +103,9 @@ class PreloaderCircular extends StatelessWidget {
         ),
         padding:const EdgeInsets.all(20),
         child: Theme(
-          data: ThemeData(accentColor: Colors.red),
+          data: ThemeData(colorScheme: Theme.of(context).colorScheme.copyWith(
+            secondary: Colors.red,
+          ),),
           child: CircularProgressIndicator.adaptive(
             strokeWidth: 2,
             // color: Get.theme.primaryColor,

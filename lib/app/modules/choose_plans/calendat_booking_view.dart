@@ -718,12 +718,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
-              DrawerHeader(
+              const SizedBox(height: 25,),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: Image.asset(
                   "assets/icons/men_logo.png",
-                  fit: BoxFit.cover,
+                  height: 100,
                 ),
               ),
+              const SizedBox(height: 25,),
+              const Divider(),
               DrawerTile(
                 title: "Profile",
                 onPressed: () {

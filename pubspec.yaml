@@ -22,12 +22,12 @@ dependencies:
 
   firebase_core: ^2.8.0
   firebase_analytics:
-  firebase_auth:
+  firebase_auth: ^4.9.0
   cloud_firestore:
   firebase_dynamic_links:
   firebase_messaging:
   firebase_storage:
-  awesome_notifications: # notifications services (will be used for fcm) # change app icon
+  awesome_notifications: ^0.7.4+1 # notifications services (will be used for fcm) # change app icon
   change_app_package_name: # change package name
   rename_app: # rename app
 
@@ -35,6 +35,8 @@ dependencies:
   flutter_svg: ^1.0.3 # for svg images
   roundcheckbox:
   image_picker:
+  google_maps_flutter: ^2.3.0
+  flutter_polyline_points: ^1.0.0
   flutter_native_image: # for compressing images.
   jiffy: # for time formatting
   easy_refresh: # refresh lists and fetch data from server
@@ -46,13 +48,13 @@ dependencies:
   lottie:
   sliding_switch:
   flutter_cupertino_datetime_picker:
-  location:
+  location: ^5.0.0
   flutter_automation: ^2.0.0
   timer_count_down: ^2.2.1
   simple_star_rating: ^0.0.3
   url_launcher:
   fast_contacts: ^3.0.3
-  flutter_sms:
+  sms_mms: ^0.0.2+1
   pay: ^1.0.11
 
 
@@ -61,7 +63,7 @@ dependencies:
   #purchases_flutter: ^4.5.4
   google_fonts: ^4.0.3
   camera: ^0.10.2
-  intl: ^0.17.0
+  intl: ^0.18.1
   video_player: ^2.5.1
   path_provider: ^2.0.12
   path: ^1.8.1
@@ -69,7 +71,6 @@ dependencies:
   vibration: ^1.7.6
   table_calendar: ^3.0.8
   device_preview: ^1.1.0
-  file: ^6.1.4
   chewie: ^1.4.0
   flutter_countdown_timer: ^4.1.0
   country_picker: ^2.0.20
@@ -98,6 +99,7 @@ flutter:
     - assets/vectors/
     - assets/fonts/
     - assets/icons/
+    - assets/markers/
     - assets/svg_icons/
     - assets/lottie/
     - assets/json/

@@ -4,6 +4,7 @@ import 'package:getx_skeleton/app/data/local/invited_contact.dart';
 import 'package:getx_skeleton/app/data/models/contact_model.dart';
 import 'package:getx_skeleton/app/modules/choose_plans/choose_your_plans.dart';
 import 'package:getx_skeleton/app/modules/home/views/booking_view.dart';
+import 'package:getx_skeleton/app/modules/home/views/family_page.dart';
 import 'package:getx_skeleton/app/modules/home/views/home_view.dart';
 import 'package:getx_skeleton/app/modules/nav_contacts/Emergency_contacts.dart';
 import 'package:getx_skeleton/app/modules/nav_emergency/transaction_alert.dart';
@@ -106,11 +107,18 @@ class AppPages {
         name: Routes.LOGIN,
         page: () => const LoginScreen(),
         binding: AuthBindings()),
+
     // GetPage(
     //     transition: Transition.fadeIn,
     //     name: Routes.PLANS,
     //     page: () => const Choose_Your_Plans(),
     //     binding: Choose_Your_PlansBindings()),
+
+    GetPage(
+      transition: Transition.fadeIn,
+      name: Routes.FAMILY,
+      page: () => const FamilyPage(),
+    ),
     GetPage(
         transition: Transition.fadeIn,
         name: Routes.SIGNUP,
@@ -248,6 +256,13 @@ class AppPages {
           settings: settings,
           page: () => const Profile_Page(),
           binding: ProfileBinding());
+    }
+    if (settings.name == _Paths.FAMILY) {
+      return GetPageRoute(
+        transition: Transition.noTransition,
+        settings: settings,
+        page: () => const FamilyPage(),
+      );
     }
     if (settings.name == _Paths.FEEDBACK) {
       return GetPageRoute(

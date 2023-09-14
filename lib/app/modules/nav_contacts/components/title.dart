@@ -19,11 +19,11 @@ class Title_emergency_contacts extends StatelessWidget {
           title:Text(
             "EMERGENCY CONTACTS",
             style: AppTextStyles.kPrimaryS8W1.copyWith(
-              fontSize: 17,
+              fontSize: 15,
             ),
           ),
           subtitle:const Padding(
-            padding: EdgeInsets.only(top: 8.0),
+            padding: EdgeInsets.only(top: 5.0),
             child: InviteFriendsGetOffTextWidget(),
           ),
         trailing:
@@ -34,10 +34,25 @@ class Title_emergency_contacts extends StatelessWidget {
             );
             // Get.to(Add_Emergency_contact());
           },
-          child: const Icon(
-            Icons.add_circle,
-            size: 32,
-            color: AppColors.Kblue_type,
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+                color: AppColors.Kblue_type,
+              border: Border.all(width: 2,color: Colors.black54,),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(0.2,0.2),
+                  blurRadius: 1,
+                  spreadRadius: 1.2,
+                  color: Colors.black54,
+                )
+              ]
+            ),
+            child: const Icon(
+              Icons.add,
+              size: 32,
+              color: Colors.white,
+            ),
           ),
         ),
 

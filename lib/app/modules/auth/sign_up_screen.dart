@@ -17,7 +17,7 @@ import '../../components/reuseable_button.dart';
 import '../../data/local/dynamic_link_payload_model.dart';
 import '../../data/local/invited_contact.dart';
 import 'components/already_have_an_account_check.dart';
-import 'components/or_divider.dart';
+
 import 'components/visibility_icon.dart';
 import 'controller/auth_controller.dart';
 
