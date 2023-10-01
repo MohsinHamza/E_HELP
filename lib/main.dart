@@ -11,7 +11,9 @@ import 'package:getx_skeleton/config/theme/custom_app_colors.dart';
 import 'package:getx_skeleton/utils/debounder_helper.dart';
 import 'app/components/reuseable_button.dart';
 import 'app/controllers/app_config_controller.dart';
+import 'app/controllers/groups_controller.dart';
 import 'app/data/local/my_shared_pref.dart';
+import 'app/modules/home/views/family_pages/controllers.dart';
 import 'app/modules/nav_emergency/evidence_permission.dart';
 import 'app/modules/nav_emergency/record_evidence.dart';
 import 'app/modules/nav_profile/controller/profile_controller.dart';
@@ -48,6 +50,8 @@ void di() {
   Get.lazyPut(() => LoggerServices());
   Get.lazyPut(() => CountryServices());
   Get.lazyPut(() => ChoosePlanController());
+  Get.lazyPut(() => GlobalGroupsController());
+  //Get.lazyPut(()=>GroupsController());
   Get.lazyPut<EvidencePermissionController>(
     () => EvidencePermissionController(),
   );

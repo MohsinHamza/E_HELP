@@ -22,7 +22,6 @@ class ContactModel {
         "picture": picture,
         "docId": docId,
         "isPaid": isPaid,
-
       };
 
   ContactModel.fromMap(map, {this.reference})

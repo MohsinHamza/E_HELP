@@ -117,11 +117,13 @@ class SignupScreen extends GetView<SignUpController> {
                       );
                     }),
                     const SizedBox(height: 8),
-                    Text('Registration',
-                         style: GoogleFonts.montserrat(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                    ),),
+                    Text(
+                      'Registration',
+                      style: GoogleFonts.montserrat(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     isDynamicLink
                         ? Text(
@@ -146,20 +148,31 @@ class SignupScreen extends GetView<SignUpController> {
                       child: TextFormField(
                         controller: controller.usernameC,
                         decoration: InputDecoration(
-                            prefixIcon: const Padding(
-                                padding: EdgeInsets.only(left: 15, top: 12),
-                                child: FaIcon(FontAwesomeIcons.user,
-                                    size: 22, color: AppColors.Proyel_blue)),
-                            hintText: "User Name",
-                            hintStyle: AppTextStyles.kPrimaryS2W4,
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    width: 1, color: AppColors.S_text),
-                                borderRadius: BorderRadius.circular(10)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    width: 1, color: AppColors.S_text),
-                                borderRadius: BorderRadius.circular(10))),
+                          prefixIcon: const Padding(
+                              padding: EdgeInsets.only(left: 15, top: 12),
+                              child: FaIcon(FontAwesomeIcons.user,
+                                  size: 22, color: AppColors.Proyel_blue)),
+                          hintText: "User Name",
+                          hintStyle: AppTextStyles.kPrimaryS2W4,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: AppColors.S_text,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: AppColors.S_text,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -581,6 +594,7 @@ class SignupScreen extends GetView<SignUpController> {
                           );
                           // Get.to(Choose_Your_Plans());
                         },
+                        isLoading: false,
                       ),
                     ),
                     const SizedBox(

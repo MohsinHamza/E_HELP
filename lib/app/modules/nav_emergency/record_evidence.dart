@@ -220,7 +220,7 @@ class RecordEvidence extends GetView<RecordEvidenceController> {
                   image: AssetImage('assets/icons/men_logo.png'),
                   height: 250,
                   width: 250,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               ),
               const EvidenceType()

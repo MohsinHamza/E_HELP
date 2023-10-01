@@ -8,7 +8,7 @@ class HomeController extends GetxController {
 
   var currentIndex = 0.obs;
 
-  final pages = [Routes.BOOKINGS,Routes.FAMILY,Routes.CONTACTS].obs;
+  final pages = [Routes.BOOKINGS,Routes.EMERGENCY_FAMILY_GROUPS,Routes.CONTACTS].obs;
   // final pages = [Routes.LOCATE, Routes.CONTACTS, Routes.EMERGENCY, Routes.USERS, Routes.PROFILE].obs;
 
   ///NAV BAR INDEX []

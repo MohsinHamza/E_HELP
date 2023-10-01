@@ -12,7 +12,9 @@ abstract class Routes {
   static const RECORDEVIDENCE = _Paths.RECORDEVIDENCE;
   static const MYEVIDENCES = _Paths.MYEVIDENCES;
   static const BOOKINGS = _Paths.BOOKINGS;
-  static const FAMILY = _Paths.FAMILY;
+  static const CREATEGROUP = _Paths.CREATEGROUP;
+  static const EMERGENCY_FAMILY_GROUPS_MAP = _Paths.EMERGENCY_FAMILY_GROUPS_MAP;
+  static const EMERGENCY_FAMILY_GROUPS = _Paths.EMERGENCY_FAMILY_GROUPS;
   static const INVITE = _Paths.INVITE;
   static const FEEDBACK = _Paths.FEEDBACK;
   static const SEEYOURID = _Paths.SEEYOURID;
@@ -33,6 +35,7 @@ abstract class Routes {
 
   ///[/users]
   static const USERS = _Paths.USERS;
+  static const ADDGROUPMEMBER = _Paths.ADDGROUPMEMBER;
 
   ///[/profile]
   static const PROFILE = _Paths.PROFILE;
@@ -78,10 +81,13 @@ abstract class _Paths {
   static const MYEVIDENCES = '/MYEVIDENCES';
   static const FEEDBACK = '/feedback';
   static const SEEYOURID = '/SEEYOURID';
+  static const ADDGROUPMEMBER = '/ADDGROUPMEMBER';
+
 
   static const SPLASH = "/splash";
   static const BOOKINGS = "/BOOKINGS";
-  static const FAMILY = "/FAMILY";
+  static const EMERGENCY_FAMILY_GROUPS_MAP = "/EMERGENCY_FAMILY_GROUPS_MAP";
+  static const EMERGENCY_FAMILY_GROUPS = "/EMERGENCY_FAMILY_GROUPS";
   static const INVITE = "/INVITE";
   //normal paths...
   ////addemergencycontact
@@ -94,4 +100,5 @@ abstract class _Paths {
   static const EMERGENCY = '/emergency';
   static const USERS = '/users';
   static const PROFILE = '/profile';
+  static const CREATEGROUP = '/CREATEGROUP';
 }

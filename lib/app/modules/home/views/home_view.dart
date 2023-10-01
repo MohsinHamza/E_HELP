@@ -61,7 +61,7 @@ class HomePage extends GetView<HomeController> {
                 Icons.group,
                 color: Colors.black,
               ),
-              label: 'Family',
+              label: 'Groups',
             ),
 
             const BottomNavigationBarItem(

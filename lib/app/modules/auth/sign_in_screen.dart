@@ -203,6 +203,7 @@ class LoginScreen extends GetView<SignInController> {
                         horizontal: 24.0,
                       ),
                       child: Reuseable_button(
+
                         "Login",
                         AppColors.lightRed,
                         SvgPicture.asset(""),
@@ -210,6 +211,7 @@ class LoginScreen extends GetView<SignInController> {
                           controller.validate();
                           // Get.to(Choose_Your_Plans());
                         },
+                        isLoading: false,
                       ),
                     ),
                     const SizedBox(
